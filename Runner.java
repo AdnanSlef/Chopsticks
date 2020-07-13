@@ -6,9 +6,14 @@
  */
 public class Runner
 {
+    /**
+     * A simple test which calls the Game() constructor
+     * and prints "Success" if no errors occur
+     */
     private static void Test1()
     {
         Game game = new Game();
+        System.out.println("Success");
     }
     
     public static void main(String[] args)
