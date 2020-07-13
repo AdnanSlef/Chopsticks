@@ -13,10 +13,10 @@ public class State
     /**
      * Constructor for objects of class State
      */
-    public State()
+    public State(char turn, char[][] hands)
     {
-        this.hands = new char[2][2];
-        this.turn = 0;
+        this.hands = hands;
+        this.turn = turn;
     }
     
     /**
