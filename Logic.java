@@ -7,10 +7,15 @@
  */
 public class Logic
 {
+    private static byte add(byte h1,byte h2)
+    {
+        return (byte)((h1+h2)%5);
+    }
+    
     /**
      * Player A hits Player B's left hand with A's right
      */
-    public static State Hit_ARL(State state)
+    public static State hitARL(State state)
     {
         return null;
     }
@@ -18,7 +23,7 @@ public class Logic
     /**
      * Player A hits Player B's right hand with A's left
      */
-    public static State Hit_ALR(State state)
+    public static State hitALR(State state)
     {
         return null;
     }
@@ -26,7 +31,7 @@ public class Logic
     /**
      * Player B hits Player A's left hand with B's right
      */
-    public static State Hit_BRL(State state)
+    public static State hitBRL(State state)
     {
         return null;
     }
@@ -34,7 +39,7 @@ public class Logic
     /**
      * Player B hits Player A's right hand with B's left
      */
-    public static State Hit_BLR(State state)
+    public static State hitBLR(State state)
     {
         return null;
     }
@@ -42,7 +47,7 @@ public class Logic
     /**
      * Player A splits
      */
-    public static State Split_A(State state)
+    public static State splitA(State state)
     {
         return null;
     }
@@ -50,7 +55,7 @@ public class Logic
     /**
      * Player B splits
      */
-    public static State Split_B(State state)
+    public static State splitB(State state)
     {
         return null;
     }

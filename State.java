@@ -7,8 +7,8 @@
  */
 public class State
 {
-    private char[][] hands; //how many fingers on each hand?
-    private char turn; //whose turn is it?
+    private byte[][] hands; //how many fingers on each hand?
+    private byte turn; //whose turn is it?
     private boolean resolved; //has this state been resolved yet?
     private State[] children; //states reachable by a single valid action in this state
     private State[] parents; //TODO implement
@@ -16,12 +16,16 @@ public class State
     /**
      * Constructor for objects of class State
      */
-    public State(char turn, char[][] hands)
+    public State(byte turn, byte[][] hands)
     {
         this.hands = hands;
         this.turn = turn;
     }
     
+    public byte getTurn()
+    {
+        return 0;
+    }
     /**
      * Recursively resolve all states reachable from this state
      * by considering valid Chopsticks moves
@@ -33,12 +37,12 @@ public class State
         }
         
         this.children = new State[]{
-            Logic.Hit_ARL(this),
-            Logic.Hit_ALR(this),
-            Logic.Hit_BRL(this),
-            Logic.Hit_BLR(this),
-            Logic.Split_A(this),
-            Logic.Split_B(this)
+            Logic.hitARL(this),
+            Logic.hitALR(this),
+            Logic.hitBRL(this),
+            Logic.hitBLR(this),
+            Logic.splitA(this),
+            Logic.splitB(this)
         };
         
         for(State child:this.children) {
@@ -61,14 +65,14 @@ public class State
             return;
         }
         
-        working_children[0] = Logic.Hit_ARL(this);
-        working_children[1] = Logic.Hit_ALR(this);
-        working_children[2] = Logic.Hit_BRL(this);
-        working_children[3] = Logic.Hit_BLR(this);
-        working_children[4] = Logic.Split_A(this);
-        working_children[5] = Logic.Split_B(this);
+        working_children[0] = Logic.hitARL(this);
+        working_children[1] = Logic.hitALR(this);
+        working_children[2] = Logic.hitBRL(this);
+        working_children[3] = Logic.hitBLR(this);
+        working_children[4] = Logic.splitA(this);
+        working_children[5] = Logic.splitB(this);
         
-        char num_children = 0;
+        byte num_children = 0;
         for(State child:working_children) {
             if(child != null) {
                 num_children++;
@@ -77,7 +81,7 @@ public class State
         
         this.children = new State[num_children];
         
-        char index = 0;
+        byte index = 0;
         for(State child:working_children) {
             if(child != null) {
                 this.children[index]=child;
