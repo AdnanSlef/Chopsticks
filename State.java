@@ -7,14 +7,16 @@
  */
 public class State
 {
-    private char[][] hands;
+    private char[][] hands; //how many fingers on each hand?
+    private char turn; //whose turn is it?
 
     /**
      * Constructor for objects of class State
      */
     public State()
     {
-        hands = new char[2][2];
+        this.hands = new char[2][2];
+        this.turn = 0;
     }
     
     /**
