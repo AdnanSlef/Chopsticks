@@ -1,33 +1,28 @@
-
 /**
- * Write a description of class Game here.
+ * A game of chopsticks.
+ * 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Adrian Self
+ * @version V0.0.0, 07/13/2020
  */
 public class Game
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    State[][][][][] states;
 
     /**
      * Constructor for objects of class Game
      */
     public Game()
     {
-        // initialise instance variables
-        x = 0;
+        states = new State[2][5][5][5][5];
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Calls .resolve() on the root state
+     * to resolve all reachable states
      */
-    public int sampleMethod(int y)
+    public void resolveStates()
     {
-        // put your code here
-        return x + y;
+        states[0][1][1][1][1].resolve();
     }
 }

@@ -1,12 +1,13 @@
 ------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
+Chopsticks game and AI player.
+This is chopsticks as I played it as a kid.
+Split twos and fours only when the other hand is empty.
+A hand goes out only by exact count; otherwise, loop around (mod 5).
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+PROJECT TITLE: Chopsticks
+PURPOSE OF PROJECT: Create Chopsticks game and implement AI player.
+VERSION or DATE: V0.0.0, 07/13/2020
+HOW TO START THIS PROJECT: _
+AUTHOR: Adrian Self
+USER INSTRUCTIONS: _

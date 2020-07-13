@@ -1,32 +1,28 @@
 /**
- * Write a description of class State here.
+ * A game state, with info on hands and turn.
+ * Can be linked to other states.
  *
  * @author Adrian Self
- * @version V0.0, 07/13/2020
+ * @version V0.0.0, 07/13/2020
  */
 public class State
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private char[][] hands;
 
     /**
      * Constructor for objects of class State
      */
     public State()
     {
-        // initialise instance variables
-        x = 0;
+        hands = new char[2][2];
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Recursively resolve all states reachable from this state
+     * by considering valid Chopsticks moves
      */
-    public int sampleMethod(int y)
+    public void resolve()
     {
-        // put your code here
-        return x + y;
+        
     }
 }
