@@ -3,7 +3,7 @@
  * Can be linked to other states.
  *
  * @author Adrian Self
- * @version V0.0.0, 07/13/2020
+ * @version V0.1.0, 07/13/2020
  */
 public class State
 {

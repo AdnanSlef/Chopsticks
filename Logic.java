@@ -1,6 +1,6 @@
 /**
  * Provides static methods for game logic
- * TODO: Switch errors from NULL_STATE to proper error handling
+ * TODO: Possibly throw errors instead of returning null
  *
  * @author Adrian Self
  * @version V0.0.0, 07/13/2020
@@ -13,11 +13,42 @@ public class Logic
     }
     
     /**
+     * Flips byte as boolean
+     * 
+     * @param b A 1 or 0 byte to invert
+     */
+    private static byte flp(byte b)
+    {
+        return b==1?(byte)0:(byte)1;
+    }
+    
+    /**
+     * Flips int as boolean
+     * 
+     * @param b A 1 or 0 int to invert
+     */
+    private static int flp(int b)
+    {
+        return b==1?0:1;
+    }
+    
+    /**
+     * Generic hit logic
+     */
+    private static State hit(State state, int player, int from, int to)
+    {
+        if(state.getTurn()!=player || state.getHand(player, from)==0 || state.getHand(flp(player),to)==0){
+            return null;
+        }
+        return Game.getStates()[flp(player)][state.getHand(0)][state.getHand(1)][0][0];
+    }
+    
+    /**
      * Player A hits Player B's left hand with A's right
      */
     public static State hitARL(State state)
     {
-        return null;
+        return hit(state, 0, 1, 0);
     }
     
     /**
@@ -25,7 +56,7 @@ public class Logic
      */
     public static State hitALR(State state)
     {
-        return null;
+        return hit(state, 0, 0, 1);
     }
     
     /**
@@ -33,7 +64,7 @@ public class Logic
      */
     public static State hitBRL(State state)
     {
-        return null;
+        return hit(state, 1, 1, 0);
     }
     
     /**
@@ -41,7 +72,7 @@ public class Logic
      */
     public static State hitBLR(State state)
     {
-        return null;
+        return hit(state, 1, 0, 1);
     }
     
     /**

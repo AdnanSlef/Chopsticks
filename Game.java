@@ -3,15 +3,14 @@
  * 
  *
  * @author Adrian Self
- * @version V0.0.0, 07/13/2020
+ * @version V0.0.1, 07/13/2020
  */
 public class Game
 {
-    private State[][][][][] states;
-    public State NULL_STATE;//TODO maybe remove
+    private static State[][][][][] states; //yikes bad design
 
     /**
-     * Constructor for objects of class Game
+     * Generates states array to start a new game
      * 
      * TODO: improve efficiency by reusing arrays
      */
@@ -31,7 +30,6 @@ public class Game
                                     new byte[]{i3,i4}
                                 }
                             );
-        NULL_STATE = states[0][0][0][0][0];//TODO maybe remove
     }
 
     /**
@@ -43,7 +41,7 @@ public class Game
         states[0][1][1][1][1].resolve();
     }
     
-    public State[][][][][] getStates()
+    public static State[][][][][] getStates()
     {
         return states;
     }

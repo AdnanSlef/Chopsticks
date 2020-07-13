@@ -29,7 +29,7 @@ public class Runner
     }
     
     /**
-     * A unit test to verify that state.getHands(index)
+     * A unit test to verify that state.getHand(index)
      * is working properly
      */
     private static void TestGetHandsIndex()
