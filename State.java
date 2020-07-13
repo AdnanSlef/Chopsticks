@@ -24,8 +24,24 @@ public class State
     
     public byte getTurn()
     {
-        return 0;
+        return turn;
     }
+    
+    public byte[][] getHands()
+    {
+        return hands;
+    }
+    
+    public byte getHand(int index)//use int for simplicity
+    {
+        return hands[index/2][index%2];
+    }
+    
+    public byte getHand(int player, int hand)//use int for simplicity
+    {
+        return hands[player][hand];
+    }
+    
     /**
      * Recursively resolve all states reachable from this state
      * by considering valid Chopsticks moves

@@ -28,8 +28,24 @@ public class Runner
         System.out.println("Success");
     }
     
+    /**
+     * A unit test to verify that state.getHands(index)
+     * is working properly
+     */
+    private static void TestGetHandsIndex()
+    {
+        Game game = new Game();
+        game.resolveStates();
+        for(byte i=0;i<4;i++) {
+            System.out.print(game.getStates()[0][1][2][3][4].getHand(i));
+        }
+        System.out.println("\nCompleted. Should read 1234");
+    }
+    
     public static void main(String[] args)
     {
         Test1();
+        Test2();
+        TestGetHandsIndex();
     }
 }
