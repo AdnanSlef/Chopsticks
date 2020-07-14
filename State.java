@@ -20,6 +20,7 @@ public class State
     {
         this.hands = hands;
         this.turn = turn;
+        this.resolved = false;
     }
     
     public byte getTurn()
@@ -56,6 +57,8 @@ public class State
         if(this.resolved) {
             return;
         }
+        
+        this.resolved = true;
         
         this.children = new State[]{ //Do I really need to include both A and B moves?
             Logic.hitALL(this),
