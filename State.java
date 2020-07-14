@@ -42,6 +42,11 @@ public class State
         return hands[player][hand];
     }
     
+    public State[] getChildren()
+    {
+        return children;
+    }
+    
     /**
      * Recursively resolve all states reachable from this state
      * by considering valid Chopsticks moves

@@ -43,28 +43,7 @@ public class Logic
     }
     
     /**
-     * Generic split
-     */
-    private static State split(State state, int player)
-    {
-        if(state.getTurn()==player)
-        {
-            if(state.getHand(player,0)==0) {
-                if(state.getHand(player,1)%2==0) {
-                    //TODO continue
-                }
-            }
-            else if(state.getHand(player,1)==0) {
-                if(state.getHand(player,0)%2==0) {
-                    //TODO continue
-                }
-            }
-        }
-        return null;
-    }
-    
-    /**
-     * Player A hits Player B's right hand with A's left
+     * Player A hits Player B's left hand with A's left
      */
     public static State hitALL(State state)
     {
@@ -156,7 +135,27 @@ public class Logic
      */
     public static State splitA(State state)
     {
-        return split(state,0);
+        if(state.getTurn()==0) {
+            if(state.getHand(0,0)==0 && state.getHand(0,1)%2==0) {
+                return Game.getStates()
+                    [0]
+                    [state.getHand(0,1)/2]
+                    [state.getHand(0,1)/2]
+                    [state.getHand(1,0)]
+                    [state.getHand(1,1)]
+                ;
+            }
+            else if(state.getHand(0,1)==0 && state.getHand(0,0)%2==0) {
+                return Game.getStates()
+                    [0]
+                    [state.getHand(0,0)/2]
+                    [state.getHand(0,0)/2]
+                    [state.getHand(1,0)]
+                    [state.getHand(1,1)]
+                ;
+            }
+        }
+        return null;
     }
     
     /**
@@ -164,6 +163,26 @@ public class Logic
      */
     public static State splitB(State state)
     {
-        return split(state,1);
+        if(state.getTurn()==0) {
+            if(state.getHand(1,0)==0 && state.getHand(1,1)%2==0) {
+                return Game.getStates()
+                    [0]
+                    [state.getHand(0,0)]
+                    [state.getHand(0,1)]
+                    [state.getHand(1,1)/2]
+                    [state.getHand(1,1)/2]
+                ;
+            }
+            else if(state.getHand(1,1)==0 && state.getHand(1,0)%2==0) {
+                return Game.getStates()
+                    [0]
+                    [state.getHand(0,0)]
+                    [state.getHand(0,1)]
+                    [state.getHand(1,0)/2]
+                    [state.getHand(1,0)/2]
+                ;
+            }
+        }
+        return null;
     }
 }
