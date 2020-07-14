@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Can be linked to other states.
  *
  * @author Adrian Self
- * @version V0.2.0, 07/14/2020
+ * @version 07/14/2020
  */
 public class State
 {
@@ -23,6 +23,24 @@ public class State
         this.turn = turn;
         this.resolved = false;
         this.parents = new ArrayList<State>();
+    }
+    
+    public String toString()
+    {
+        char pLetter;
+        String ownHand;
+        String otherHand;
+        if(turn==0) {
+            pLetter = 'A';
+            ownHand = ""+getHand(0)+getHand(1);
+            otherHand = ""+getHand(2)+getHand(3);
+        }
+        else {
+            pLetter = 'B';
+            ownHand = ""+getHand(2)+getHand(3);
+            otherHand = ""+getHand(0)+getHand(1);
+        }
+        return String.format("<%c %s %s>",pLetter,ownHand,otherHand);
     }
     
     public byte getTurn()

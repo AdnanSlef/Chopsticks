@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * TODO: Possibly throw errors instead of returning null
  *
  * @author Adrian Self
- * @version V0.0.0, 07/13/2020
+ * @version 07/13/2020
  */
 public class Logic
 {

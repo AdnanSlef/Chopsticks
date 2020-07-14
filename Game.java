@@ -3,7 +3,7 @@
  * 
  *
  * @author Adrian Self
- * @version V0.0.1, 07/13/2020
+ * @version 07/13/2020
  */
 public class Game
 {
