@@ -7,7 +7,7 @@
  */
 public class Game
 {
-    private static State[][][][][] states; //yikes bad design
+    private static State[][][][][] states;
 
     /**
      * Generates states array to start a new game

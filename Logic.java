@@ -43,6 +43,27 @@ public class Logic
     }
     
     /**
+     * Generic split
+     */
+    private static State split(State state, int player)
+    {
+        if(state.getTurn()==player)
+        {
+            if(state.getHand(player,0)==0) {
+                if(state.getHand(player,1)%2==0) {
+                    //TODO continue
+                }
+            }
+            else if(state.getHand(player,1)==0) {
+                if(state.getHand(player,0)%2==0) {
+                    //TODO continue
+                }
+            }
+        }
+        return null;
+    }
+    
+    /**
      * Player A hits Player B's right hand with A's left
      */
     public static State hitALL(State state)
@@ -135,7 +156,7 @@ public class Logic
      */
     public static State splitA(State state)
     {
-        return null;
+        return split(state,0);
     }
     
     /**
@@ -143,6 +164,6 @@ public class Logic
      */
     public static State splitB(State state)
     {
-        return null;
+        return split(state,1);
     }
 }
