@@ -7,7 +7,7 @@ A hand goes out only by exact count; otherwise, loop around (mod 5).
 
 PROJECT TITLE: Chopsticks
 PURPOSE OF PROJECT: Create Chopsticks game and implement AI player.
-VERSION or DATE: V0.0.0, 07/13/2020
+VERSION or DATE: V0.0.1, 07/13/2020
 HOW TO START THIS PROJECT: _
 AUTHOR: Adrian Self
 USER INSTRUCTIONS: _

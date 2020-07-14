@@ -41,7 +41,7 @@ public class Game
         states[0][1][1][1][1].resolve();
     }
     
-    public static State[][][][][] getStates()
+    public static State[][][][][] getStates() //TODO create and implement getState()
     {
         return states;
     }

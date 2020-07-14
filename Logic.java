@@ -48,7 +48,13 @@ public class Logic
     public static State hitALL(State state)
     {
         if(hitValid(state, 0, 0, 0)) {
-            
+            return Game.getStates()
+                [1]
+                [state.getHand(0)]
+                [state.getHand(1)]
+                [add(state.getHand(0),state.getHand(2))]
+                [state.getHand(3)]
+            ;
         }
         return null;
     }
@@ -59,7 +65,13 @@ public class Logic
     public static State hitALR(State state)
     {
         if(hitValid(state, 0, 0, 1)) {
-            
+            return Game.getStates()
+                [1]
+                [state.getHand(0)]
+                [state.getHand(1)]
+                [state.getHand(2)]
+                [add(state.getHand(0),state.getHand(3))]
+            ;
         }
         return null;
     }
@@ -70,7 +82,13 @@ public class Logic
     public static State hitARL(State state)
     {
         if(hitValid(state, 0, 1, 0)) {
-            
+            return Game.getStates()
+                [1]
+                [state.getHand(0)]
+                [state.getHand(1)]
+                [add(state.getHand(1),state.getHand(2))]
+                [state.getHand(3)]
+            ;
         }
         return null;
     }
@@ -81,7 +99,13 @@ public class Logic
     public static State hitARR(State state)
     {
         if(hitValid(state, 0, 1, 1)) {
-            
+            return Game.getStates()
+                [1]
+                [state.getHand(0)]
+                [state.getHand(1)]
+                [state.getHand(2)]
+                [add(state.getHand(1),state.getHand(3))]
+            ;
         }
         return null;
     }
@@ -92,7 +116,13 @@ public class Logic
     public static State hitBLL(State state)
     {
         if(hitValid(state, 1, 0, 0)) {
-            
+            return Game.getStates()
+                [0]
+                [add(state.getHand(2),state.getHand(0))]
+                [state.getHand(1)]
+                [state.getHand(2)]
+                [state.getHand(3)]
+            ;
         }
         return null;
     }
@@ -103,7 +133,13 @@ public class Logic
     public static State hitBLR(State state)
     {
         if(hitValid(state, 1, 0, 1)) {
-            
+            return Game.getStates()
+                [0]
+                [state.getHand(0)]
+                [add(state.getHand(2),state.getHand(1))]
+                [state.getHand(2)]
+                [state.getHand(3)]
+            ;
         }
         return null;
     }
@@ -114,7 +150,13 @@ public class Logic
     public static State hitBRL(State state)
     {
         if(hitValid(state, 1, 1, 0)) {
-            
+            return Game.getStates()
+                [0]
+                [add(state.getHand(3),state.getHand(0))]
+                [state.getHand(1)]
+                [state.getHand(2)]
+                [state.getHand(3)]
+            ;
         }
         return null;
     }
@@ -125,7 +167,13 @@ public class Logic
     public static State hitBRR(State state)
     {
         if(hitValid(state, 1, 1, 1)) {
-            
+            return Game.getStates()
+                [0]
+                [state.getHand(0)]
+                [add(state.getHand(3),state.getHand(1))]
+                [state.getHand(2)]
+                [state.getHand(3)]
+            ;
         }
         return null;
     }
