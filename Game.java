@@ -38,7 +38,7 @@ public class Game
      */
     public void resolveStates()
     {
-        states[0][1][1][1][1].resolve();
+        states[0][1][1][1][1].resolve(null);
     }
     
     public static State[][][][][] getStates() //TODO create and implement getState()

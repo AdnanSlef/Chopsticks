@@ -11,7 +11,8 @@ public class State
     private byte turn; //whose turn is it?
     private boolean resolved; //has this state been resolved yet?
     private State[] children; //states reachable by a single valid action in this state
-    private State[] parents; //TODO implement
+    private State[] parents; //states which can lead directly to this state
+    private byte numparents; //the number of parents currently recorded
 
     /**
      * Constructor for objects of class State
@@ -21,6 +22,8 @@ public class State
         this.hands = hands;
         this.turn = turn;
         this.resolved = false;
+        this.numparents = 0;
+        this.parents = new State[Logic.NUM_MOVES];
     }
     
     public byte getTurn()
@@ -48,17 +51,25 @@ public class State
         return children;
     }
     
+    public State[] getParents()
+    {
+        return parents;
+    }
+    
     /**
      * Recursively resolve all states reachable from this state
      * by considering valid Chopsticks moves
      */
-    public void resolve()
+    public void resolve(State state)
     {
+        this.parents[this.numparents] = state;
+        this.numparents++;
+        
         if(this.resolved) {
             return;
         }
         
-        this.resolved = true;
+        this.resolved = true; //TODO verify that this pre-marking works as expected
         
         this.children = new State[]{ //Do I really need to include both A and B moves?
             Logic.hitALL(this),
@@ -75,7 +86,7 @@ public class State
         
         for(State child:this.children) {
             if(child != null){
-                child.resolve();
+                child.resolve(this);
             }
         }
     }

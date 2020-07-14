@@ -49,7 +49,11 @@ public class Tester
     {
         Game game = new Game();
         game.resolveStates();
-        System.out.println(game.getStates()[0][2][0][3][4].getChildren());
+        for(State child:game.getStates()[0][2][0][3][4].getChildren())
+            System.out.println(child);
+        System.out.println("--Parents of 02034--");
+        for(State parent:game.getStates()[0][2][0][3][4].getParents())
+            System.out.println(parent);
         System.out.println("Completed.");
     }
     

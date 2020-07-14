@@ -7,6 +7,8 @@
  */
 public class Logic
 {
+    public static final byte NUM_MOVES = 10; //number of distinct moves
+    
     private static byte add(byte h1,byte h2)
     {
         return (byte)((h1+h2)%5);
