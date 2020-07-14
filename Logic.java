@@ -33,14 +33,13 @@ public class Logic
     }
     
     /**
-     * Generic hit logic
+     * Validate hit
      */
-    private static State hit(State state, int player, int from, int to)
+    private static boolean hitValid(State state, int player, int from, int to)
     {
-        if(state.getTurn()!=player || state.getHand(player, from)==0 || state.getHand(flp(player),to)==0){
-            return null;
-        }
-        return Game.getStates()[flp(player)][state.getHand(0)][state.getHand(1)][0][0];
+        return state.getTurn()==player 
+            && state.getHand(player, from)!=0 
+            && state.getHand(flp(player),to)!=0;
     }
     
     /**
@@ -48,7 +47,10 @@ public class Logic
      */
     public static State hitARL(State state)
     {
-        return hit(state, 0, 1, 0);
+        if(hitValid(state, 0, 1, 0)) {
+            
+        }
+        return null;
     }
     
     /**
@@ -56,7 +58,10 @@ public class Logic
      */
     public static State hitALR(State state)
     {
-        return hit(state, 0, 0, 1);
+        if(hitValid(state, 0, 0, 1)) {
+            
+        }
+        return null;
     }
     
     /**
@@ -64,7 +69,10 @@ public class Logic
      */
     public static State hitBRL(State state)
     {
-        return hit(state, 1, 1, 0);
+        if(hitValid(state, 1, 1, 0)) {
+            
+        }
+        return null;
     }
     
     /**
@@ -72,7 +80,10 @@ public class Logic
      */
     public static State hitBLR(State state)
     {
-        return hit(state, 1, 0, 1);
+        if(hitValid(state, 1, 0, 1)) {
+            
+        }
+        return null;
     }
     
     /**
