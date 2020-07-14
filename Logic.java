@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * Provides static methods for game logic
  * TODO: Possibly throw errors instead of returning null
@@ -42,6 +43,35 @@ public class Logic
         return state.getTurn()==player 
             && state.getHand(player, from)!=0 
             && state.getHand(flp(player),to)!=0;
+    }
+    
+    public static ArrayList<State> stateChildren(State state)
+    {
+        State child;
+        ArrayList<State> children = new ArrayList<State>();
+        
+        child = hitALL(state);
+        if(child !=null) children.add(child);
+        child = hitALR(state);
+        if(child !=null) children.add(child);
+        child = hitARL(state);
+        if(child !=null) children.add(child);
+        child = hitARR(state);
+        if(child !=null) children.add(child);
+        child = hitBLL(state);
+        if(child !=null) children.add(child);
+        child = hitBLR(state);
+        if(child !=null) children.add(child);
+        child = hitBRL(state);
+        if(child !=null) children.add(child);
+        child = hitBRR(state);
+        if(child !=null) children.add(child);
+        child = splitA(state);
+        if(child !=null) children.add(child);
+        child = splitB(state);
+        if(child !=null) children.add(child);
+        
+        return children;
     }
     
     /**

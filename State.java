@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * A game state, with info on hands and turn.
  * Can be linked to other states.
@@ -10,9 +11,8 @@ public class State
     private byte[][] hands; //how many fingers on each hand?
     private byte turn; //whose turn is it?
     private boolean resolved; //has this state been resolved yet?
-    private State[] children; //states reachable by a single valid action in this state
-    private State[] parents; //states which can lead directly to this state
-    private byte numparents; //the number of parents currently recorded
+    private ArrayList<State> children; //states reachable by a single valid action in this state
+    private ArrayList<State> parents; //states which can lead directly to this state
 
     /**
      * Constructor for objects of class State
@@ -22,8 +22,7 @@ public class State
         this.hands = hands;
         this.turn = turn;
         this.resolved = false;
-        this.numparents = 0;
-        this.parents = new State[Logic.NUM_MOVES];
+        this.parents = new ArrayList<State>();
     }
     
     public byte getTurn()
@@ -46,12 +45,12 @@ public class State
         return hands[player][hand];
     }
     
-    public State[] getChildren()
+    public ArrayList<State> getChildren()
     {
         return children;
     }
     
-    public State[] getParents()
+    public ArrayList<State> getParents()
     {
         return parents;
     }
@@ -62,8 +61,7 @@ public class State
      */
     public void resolve(State state)
     {
-        this.parents[this.numparents] = state;
-        this.numparents++;
+        this.parents.add(state);
         
         if(this.resolved) {
             return;
@@ -71,18 +69,7 @@ public class State
         
         this.resolved = true; //TODO verify that this pre-marking works as expected
         
-        this.children = new State[]{ //Do I really need to include both A and B moves?
-            Logic.hitALL(this),
-            Logic.hitALR(this),
-            Logic.hitARL(this),
-            Logic.hitARR(this),
-            Logic.hitBLL(this),
-            Logic.hitBLR(this),
-            Logic.hitBRL(this),
-            Logic.hitBRR(this),
-            Logic.splitA(this),
-            Logic.splitB(this)
-        };
+        this.children = Logic.stateChildren(this);
         
         for(State child:this.children) {
             if(child != null){

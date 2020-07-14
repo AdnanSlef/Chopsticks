@@ -8,6 +8,11 @@
  */
 public class AIPlayer extends Player
 {
+    private byte evaluate(State state)
+    {
+        return 0;
+    }
+    
     public void move()
     {
     }
