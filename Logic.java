@@ -43,11 +43,11 @@ public class Logic
     }
     
     /**
-     * Player A hits Player B's left hand with A's right
+     * Player A hits Player B's right hand with A's left
      */
-    public static State hitARL(State state)
+    public static State hitALL(State state)
     {
-        if(hitValid(state, 0, 1, 0)) {
+        if(hitValid(state, 0, 0, 0)) {
             
         }
         return null;
@@ -65,11 +65,33 @@ public class Logic
     }
     
     /**
-     * Player B hits Player A's left hand with B's right
+     * Player A hits Player B's left hand with A's right
      */
-    public static State hitBRL(State state)
+    public static State hitARL(State state)
     {
-        if(hitValid(state, 1, 1, 0)) {
+        if(hitValid(state, 0, 1, 0)) {
+            
+        }
+        return null;
+    }
+    
+    /**
+     * Player A hits Player B's right hand with A's right
+     */
+    public static State hitARR(State state)
+    {
+        if(hitValid(state, 0, 1, 1)) {
+            
+        }
+        return null;
+    }
+    
+    /**
+     * Player B hits Player A's left hand with B's left
+     */
+    public static State hitBLL(State state)
+    {
+        if(hitValid(state, 1, 0, 0)) {
             
         }
         return null;
@@ -81,6 +103,28 @@ public class Logic
     public static State hitBLR(State state)
     {
         if(hitValid(state, 1, 0, 1)) {
+            
+        }
+        return null;
+    }
+    
+    /**
+     * Player B hits Player A's left hand with B's right
+     */
+    public static State hitBRL(State state)
+    {
+        if(hitValid(state, 1, 1, 0)) {
+            
+        }
+        return null;
+    }
+    
+    /**
+     * Player B hits Player A's right hand with B's right
+     */
+    public static State hitBRR(State state)
+    {
+        if(hitValid(state, 1, 1, 1)) {
             
         }
         return null;
